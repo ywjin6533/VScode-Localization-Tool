@@ -1,0 +1,78 @@
+{
+  "name": "game-localization-helper",
+  "displayName": "Game Localization Helper",
+  "description": "도움말 확장 프로그램 - 게임 로컬라이제이션 파일 편집",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "publisher": "ywjin6533",
+  "author": "ywjin6533",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ywjin6533/VScode-Localization-Tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ywjin6533/VScode-Localization-Tool/issues"
+  },
+  "readme": "https://github.com/ywjin6533/VScode-Localization-Tool/blob/main/README.md",
+  "license": "MIT",
+  "keywords": [
+    "vscode",
+    "localization",
+    "game"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gameLocalization.openEditor",
+        "title": "게임 로컬라이제이션 에디터 열기",
+        "category": "Game Localization"
+      },
+      {
+        "command": "gameLocalization.exportTranslation",
+        "title": "번역 파일 내보내기",
+        "category": "Game Localization"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "gameLocalization.openEditor",
+          "when": "resourceExtname == .txt",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "gameLocalization.openEditor",
+          "when": "resourceExtname == .txt",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "gameLocalization.openEditor",
+        "key": "ctrl+alt+l",
+        "when": "resourceExtname == .txt"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}

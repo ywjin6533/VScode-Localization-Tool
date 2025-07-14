@@ -1,0 +1,5 @@
+echo "node_modules/" > .gitignore
+echo "out/" >> .gitignore
+echo ".vscode/" >> .gitignore
+echo "*.vsix" >> .gitignore
+echo "*.log" >> .gitignore
